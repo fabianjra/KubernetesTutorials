@@ -97,3 +97,16 @@ Fuits:
 	Fat: 0.3 g
 	Carbs: 16 g
 ```
+
+```
+Payslips:
+ - 
+	Month: May
+	Wage: 4000
+ -
+	Month: June
+	Wage: 4500
+ -
+	Month: July
+	Wage: 5300
+```
