@@ -45,7 +45,7 @@
 	* kubectl get pods -o wide: Additional inforamcion, like IP
 
 
-# Pods:
+# YAML:
 
 - It is used to represent configuration data.
 - Dictionary: Unordered collection.
@@ -74,26 +74,26 @@ Vegetables:
 - Dictionary / Map (spaces are important to create childs):
 ```
 Banana:
-	calories: 105
-	Fat: 0.4 g
-	Carbs: 27 g
+ calories: 105
+ Fat: 0.4 g
+ Carbs: 27 g
 
 Grapes:
-	Calories: 62
-	Fat: 0.3 g
-	Carbs: 16 g
+ Calories: 62
+ Fat: 0.3 g
+ Carbs: 16 g
 ```
 
 - Key value / Dictionary / Lists
 ```
 Fuits:
-	-	Banana:
-		Caloires: 105
-		Fat: 0.4 g
-		Carbs: 27 g
+ - Banana:
+	Caloires: 105
+	Fat: 0.4 g
+	Carbs: 27 g
 
-	-	Grape:
-		Calories: 62
-		Fat: 0.3 g
-		Carbs: 16 g
+ - Grape:
+	Calories: 62
+	Fat: 0.3 g
+	Carbs: 16 g
 ```
