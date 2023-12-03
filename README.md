@@ -110,3 +110,29 @@ Payslips:
 	Month: July
 	Wage: 5300
 ```
+
+# PODS with YAML:
+
+- YAML files are used as inputs for POD creations.
+ - Top/Root levels of properties, case sensitive, required (with examples):
+
+```
+apitVersion: v1 #String
+kind: Pod #String
+metadata: #Dictionary
+	name: myapp-pod #String
+	labels: #Dictionary
+		app: myapp
+
+spec: #Dictionary
+	containers: #List/Array
+		- name: nginx-container
+			image: nginx
+```
+
+- Commands (-f is for the file name):
+	* kubectl create -f pod-definition.yaml -> Create the pod with the Yaml definitions.
+	* kubectl apply -f pod.yaml -> Apply is another way to create the pod
+	* kubectl get pods -> See the pods
+	* kubectl describe pod myapp-pod -> More information about the pod.
+	* cat pod.yaml -> Review the yaml file to verify children and sitax is correct.
