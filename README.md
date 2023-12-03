@@ -39,10 +39,11 @@
 - Pod overview: [URL](https://kubernetes.io/docs/concepts/workloads/pods/)
 
 - Terminal kubectl commands:
-	* kubectl run nginx --image=nginx: Deploy a Docker container by creating a pod. First creates a pod automatically and deploys an instance of the Nginx docker iamge.
-	* kubectl get pods: See all the pods.
-	kubectl describe pod nginx: Get information about tht pods.
-	* kubectl get pods -o wide: Additional inforamcion, like IP
+	* kubectl run nginx --image=nginx -> Deploy a Docker container by creating a pod. First creates a pod automatically and deploys an instance of the Nginx docker iamge.
+	* kubectl get pods -> See all the pods.
+	kubectl describe pod nginx -> Get information about tht pods.
+	* kubectl get pods -o wide -> Additional inforamcion, like IP.
+	* kubectl delete pod `podname` -> Delete a single pod.
 
 
 # YAML:
