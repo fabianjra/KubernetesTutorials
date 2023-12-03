@@ -137,6 +137,11 @@ spec: #Dictionary
 	* kubectl get pods -> See the pods
 	* kubectl describe pod myapp-pod -> More information about the pod.
 	* cat pod.yaml -> Review the yaml file to verify children and sitax is correct.
+	* kubectl run `pod name` --image=`image name` --dry-run=client -o yaml ->  see the YAML file.
+	* kubectl run `pod name` --image=`image name` --dry-run=client -o yaml > `file name`.yaml -> Create the file using the YAML information.
+	* kubectl create -f redis.yaml -> Create the pod using the YAML file.
+	* vi `file name`.yaml -> Edit the YAML file.
+	* kubectl apply -f redis.yaml -> Apply changes on a file.
 
 - Configurar VS Code para trabajar con YAML en Kubernetes:
 	* En los ajustes de la extension YAML, ir al archivo settings.json del schema. Agregar la linea de codigo de soporte de YAML para kubernetes y deberia quedar de la siguiente manera:
