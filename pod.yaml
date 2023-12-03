@@ -1,0 +1,13 @@
+#Required Top level/Root properties:
+
+apiVersion: v1 #String
+kind: Pod #String
+metadata: #Dictionary
+  name: nginx #String
+  labels: 
+    app: nginx
+    tier: frontend
+spec: #especifications
+  containers: #Array/List
+    - name: nginx
+      image: nginx

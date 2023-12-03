@@ -136,3 +136,11 @@ spec: #Dictionary
 	* kubectl get pods -> See the pods
 	* kubectl describe pod myapp-pod -> More information about the pod.
 	* cat pod.yaml -> Review the yaml file to verify children and sitax is correct.
+
+- Configurar VS Code para trabajar con YAML en Kubernetes:
+	* En los ajustes de la extension YAML, ir al archivo settings.json del schema. Agregar la linea de codigo de soporte de YAML para kubernetes y deberia quedar de la siguiente manera:
+```
+    "yaml.schemas": {
+        "kubernetes": "*.yaml"
+    }
+```
