@@ -223,7 +223,9 @@ spec:
 - Commands for replica set:
 	* kubectl create -f replicaset-definition.yml -> Create the replica set based in a YAML file.
 	* kubectl get replicaset -> Get the information and number of replica set.
+	* kubectl describe replicaset myapp-replicaset -> More information about the replica set.
 	* kubectl delete replicaset myapp-replicaset -> Delete also all underlying PODs.
 	* kubectl replace -f replicaset-definition.yml -> Update the replcia set definition if a property changed. Example: cahnge the number of replcias.
 	* kubectl scale --replicas=6 replicaset-definition.yml -> Update the replicas.
 	* kubectl scale --replicas=6 replicaset myapp-replicaset -> Another way to update the replicas.
+	* kubectl edit replicaset myapp-replicaset -> Edit the replica set configuration in YAML structure (temporal file).

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: myapp-replicaset
+  labels:
+    app: myapp 
+spec:
+  selector:
+    matchLabels:
+      env: myapp #SAME 1. Ties them together
+  replicas: 3
+  template: #Same Pod definition.
+    metadata:
+      name: nginx-2
+      labels:
+        app: myapp #SAME 1. Ties them together
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
