@@ -243,5 +243,5 @@ spec:
 	* `kubectl get replicaset` or `kubectl get rs` -> Get the Deployment's replicaset
 	* `kubectl get pods` -> Get the Replicaset's pods.
 	* `kubectl get all` -> Get the deployment, replica sets and pods.
-
+	* `kubectl create deployment httpd-frontend --image=http:2.4-alpine --replicas=3` -> Crear un deploymento con nombre especifigo: "httpd-frontend", imagen: "http:2.4-alpine" y replicas: 3.
 - 
