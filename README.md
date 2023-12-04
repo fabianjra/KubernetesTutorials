@@ -115,7 +115,7 @@ Payslips:
 # PODS with YAML:
 
 - YAML files are used as inputs for POD creations.
- - Top/Root levels of properties, case sensitive, required (with examples):
+- Top/Root levels of properties, case sensitive, required (with examples):
 
 ```
 apitVersion: v1 #String
@@ -152,6 +152,7 @@ spec: #Dictionary
 ```
 
 # Controllers:
+
 - The brain behind kubernetes.
 - Replication controller:
 	* Ensures that the specified number of pods are running at all times.
@@ -189,13 +190,13 @@ spec:
 - Replica set:
 	* New way to do the replication controller.
 	* Creation of Replica set YAML definitions:
-	* Selector is the mosr important difference, it is used to manage pods out from the replica set.
+	* Selector is the most important difference, it is used to manage pods out from the replica set.
 
 ```
 apitVersion: apps/v1 #First difference
 kind: ReplicaSet
 metadata:
-	name: myapp-replicaset
+	name: myapp-replicaSet
 	labels: 
 		app: myapp
 		type: front-end
@@ -229,3 +230,9 @@ spec:
 	* kubectl scale --replicas=6 replicaset-definition.yml -> Update the replicas.
 	* kubectl scale --replicas=6 replicaset myapp-replicaset -> Another way to update the replicas.
 	* kubectl edit replicaset myapp-replicaset -> Edit the replica set configuration in YAML structure (temporal file).
+	* kubectl scale rs <rs name> --replicas=5 -> Update the replicas.
+
+
+# Deployments:
+
+- 

@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      env: myapp #SAME 1. Ties them together
+      app: myapp #SAME 1. Ties them together
   replicas: 3
   template: #Same Pod definition.
     metadata:
