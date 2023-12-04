@@ -150,3 +150,80 @@ spec: #Dictionary
         "kubernetes": "*.yaml"
     }
 ```
+
+# Controllers:
+- The brain behind kubernetes.
+- Replication controller:
+	* Ensures that the specified number of pods are running at all times.
+	* Load balancing and scaling. Example: Increase number of pods or nodes, as the number of users are growing up.
+	* How to create the Replication controller:
+	* The important part is in the spec: Add a Template, which is exactly what we used to create the Pod.
+```
+apitVersion: v1
+kind: ReplicationController
+metadata:
+	name: myapp-rc
+	labels: 
+		app: myapp
+		type: front-end
+
+spec: 
+	template: #Pod Template
+		metadata: #Child of template
+			name: myapp-pod 
+			labels:
+				app: myapp
+				type: front-end
+		spec:
+			containers:
+				- name: nginx-container
+				  image: nginx
+
+	replicas: 3 #Replica count
+```
+
+- Commands for replication controoler:
+	* kubectl create -f rc.definitions.yaml -> Create the replica controller based in a YAML file.
+	* kubectl get replicationcontroller -> Get the information and number of replication controllers.
+
+- Replica set:
+	* New way to do the replication controller.
+	* Creation of Replica set YAML definitions:
+	* Selector is the mosr important difference, it is used to manage pods out from the replica set.
+
+```
+apitVersion: apps/v1 #First difference
+kind: ReplicaSet
+metadata:
+	name: myapp-replicaset
+	labels: 
+		app: myapp
+		type: front-end
+
+spec: 
+	template: #Pod Template
+		metadata: #Child of template
+			name: myapp-pod 
+			labels:
+				app: myapp
+				type: front-end
+		spec:
+			containers:
+				- name: nginx-container
+				  image: nginx
+
+	replicas: 3 #Replica count
+		matchLabel:
+			type: front-end
+
+	#Replica set, require a selector definition:
+	selector: #What Pod under it
+```
+
+- Commands for replica set:
+	* kubectl create -f replicaset-definition.yml -> Create the replica set based in a YAML file.
+	* kubectl get replicaset -> Get the information and number of replica set.
+	* kubectl delete replicaset myapp-replicaset -> Delete also all underlying PODs.
+	* kubectl replace -f replicaset-definition.yml -> Update the replcia set definition if a property changed. Example: cahnge the number of replcias.
+	* kubectl scale --replicas=6 replicaset-definition.yml -> Update the replicas.
+	* kubectl scale --replicas=6 replicaset myapp-replicaset -> Another way to update the replicas.
