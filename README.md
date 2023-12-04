@@ -244,5 +244,15 @@ spec:
 	* `kubectl get pods` -> Get the Replicaset's pods.
 	* `kubectl get all` -> Get the deployment, replica sets and pods.
 	* `kubectl create deployment httpd-frontend --image=http:2.4-alpine --replicas=3` -> Crear un deploymento con nombre especifigo: "httpd-frontend", imagen: "http:2.4-alpine" y replicas: 3.
+	* `kubecetl apply -f <yaml file name>` -> Update changes when modify the yaml file.
+	* `kubecetl set image deployment/<deploy name> nginx=nginx:1.9.1` -> Update the image
+	* `kubectl rollout undo deployment/<name>` -> Rollback the deployment.
 
-- *Rollout*: Create a new deployment revision.
+- **Rollout**: Create a new deployment revision.
+- Rollout commands:
+	* `kubectl rollout status deployment/<app name>` -> Status of the rollout.
+	* `kubectl rollout history deployment/<app name>` -> Revisions and history information.
+
+- 2 Types of Deployment Strategy:
+	1. Recreate: Destroy all and then create.
+	2. Rolling Update (default): Not destroy all at once. Instead, delete one by one.
