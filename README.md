@@ -235,4 +235,13 @@ spec:
 
 # Deployments:
 
+- Jerarquia de los deploymentos: Deployment -> ReplicaSet -> Pods -> Containers
+- Al crear un deployment, automaticamente se crea el replicaset y los Pods.
+- Commands for Deployments:
+	* `kubectl create -f deployment-definition.yaml` -> Create a deployment
+	* `kubectl get deployments` -> Get the deployments
+	* `kubectl get replicaset` or `kubectl get rs` -> Get the Deployment's replicaset
+	* `kubectl get pods` -> Get the Replicaset's pods.
+	* `kubectl get all` -> Get the deployment, replica sets and pods.
+
 - 
