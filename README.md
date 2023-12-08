@@ -323,4 +323,5 @@ spec:
 			type: front-end
 		```
 
-	* LoadBalancer
+	* **LoadBalancer**: This works only with supported work platforms.
+		1. Definitions are exactly the same as ClusterIP, except for -> type: Loadbalancer
