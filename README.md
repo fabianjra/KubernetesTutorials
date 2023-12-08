@@ -1,3 +1,6 @@
+# General notes:
+- Redis: Key Value storage.
+
 # Kubernetes:
 
 - 2 types of servers (nodes): Master and Worker.
@@ -270,12 +273,13 @@ spec:
 - Node port service: redirect the call to the correct pod.
 
 - Services types:
+
 	* **NodePort**: Through a port we can access a POD from outside the node, using ports. PORT -> Service | TargetPort: POD.
-		1. definition YAML:
+		1. Definition YAML:
 		```
 		apiVersion: v1
-
 		kind: Service
+
 		metadata:
 		  name: myapp-service
 
@@ -295,6 +299,28 @@ spec:
 			* `kubectl create -f <app name>.yaml` -> Create the service.
 			* `kubectl get services` -> Get services information.
 			* `curl http://192.168.1.2:30008` -> Example to acces the pod from and external IP address with port. 
+			* `minikube service <service name> --url` -> Show the IP service available to access it.
 
-	* ClusterIP
+
+	* **ClusterIP**: We can have a gruop of Front-end Pods, a group of Back-end Pods and a group of Redis Pods. A Service is in between of each group to connect each other, forming a line of connections.
+		1. Front-end Group -> service -> Back-end Group -> service -> Redis Group
+		2. Definition YAML:
+		```
+		apiVersion: v1
+		kind: Service
+		metadata:
+		  name: back-end
+
+		spec: 
+		  type: ClusterIP #Type of node service. It's de default value.
+		  ports:
+		    - targetPort: 80 #Where the backend is expose.
+			  port: 80 #Service expose.
+
+		  selector: #To link the service to the pod.
+		    #Metadata Labels goes here:
+			app: myapp
+			type: front-end
+		```
+
 	* LoadBalancer

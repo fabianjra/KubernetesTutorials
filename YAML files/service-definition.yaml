@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: myapp-service
+
+spec:
+  type: NodePort #Type of node service.
+  ports:
+    - port: 80 #Service
+      targetPort: 80 #POD
+      nodePort: 30004 #Outside node exposition to public. We ingress the node from here.
+
+  selector: #To link the service to the pod.
+   #POD Metadata Labels goes here:
+    app: myapp
