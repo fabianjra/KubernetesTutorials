@@ -272,7 +272,7 @@ spec:
 - Services inside a node is in charge of connect the pod inside the node with the external IP addres from the node, using a port.
 - Node port service: redirect the call to the correct pod.
 
-- Services types:
+- **Services types**:
 
 	* **NodePort**: Through a port we can access a POD from outside the node, using ports. PORT -> Service | TargetPort: POD.
 		1. Definition YAML:
