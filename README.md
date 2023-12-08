@@ -297,14 +297,16 @@ spec:
 		```
 		2. Service commands:
 			* `kubectl create -f <app name>.yaml` -> Create the service.
-			* `kubectl get services` -> Get services information.
+			* `kubectl get service` -> Get service information.
+			* `kubectl describe service` -> More service information.
 			* `curl http://192.168.1.2:30008` -> Example to acces the pod from and external IP address with port. 
 			* `minikube service <service name> --url` -> Show the IP service available to access it.
 
 
 	* **ClusterIP**: We can have a gruop of Front-end Pods, a group of Back-end Pods and a group of Redis Pods. A Service is in between of each group to connect each other, forming a line of connections.
-		1. Front-end Group -> service -> Back-end Group -> service -> Redis Group
-		2. Definition YAML:
+		1. Enpoints: Basically the each POD has an endpoint.
+		2. Front-end Group -> service -> Back-end Group -> service -> Redis Group
+		3. Definition YAML:
 		```
 		apiVersion: v1
 		kind: Service

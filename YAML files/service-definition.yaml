@@ -7,9 +7,9 @@ metadata:
 spec:
   type: NodePort #Type of node service.
   ports:
-    - port: 80 #Service
+    - port: 80 #From Service to POD
       targetPort: 80 #POD
-      nodePort: 30004 #Outside node exposition to public. We ingress the node from here.
+      nodePort: 30004 #From outside node exposition to public to Service. We ingress the node from here.
 
   selector: #To link the service to the pod.
    #POD Metadata Labels goes here:
