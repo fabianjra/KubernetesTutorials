@@ -3,6 +3,8 @@
 
 # Kubernetes:
 
+- We cannot deploy containers in Kubernetes. Smallest object in a Kubernetes cluster is a Pod.
+
 - 2 types of servers (nodes): Master and Worker.
 
 - Cluster: Group of nodes grouped together.
@@ -327,3 +329,20 @@ spec:
 
 	* **LoadBalancer**: This works only with supported work platforms.
 		1. Definitions are exactly the same as ClusterIP, except for -> type: Loadbalancer
+
+
+# Microservices:
+
+- Commandos for docker:
+	* `docker run -d --name=redis redis` -> Start the redis container.
+	* `docker run -d --name=db postgres:9.4` -> Start the data base.
+	* `docker run -d --name=vote -p 5000:80 voting-app` -> Start the web server.
+	* `docker run -d --name=result -p 5001:80 result-app` -> Web UI.
+	* `docker run -d --name=worker worker` -> Start the worker.
+
+- Links: Connect containers together.
+	* change the command to add: `--link redis:redis`. Example: `docker run -d --name=vote -p 5000:80 --link redis:redis voting-app`
+	* changed and new command: * `docker run -d --name=result -p 5001:80 --link db:db result-app`
+	* Link the worker with redis and db. Changed to: `docker run -d --name=worker --lnik db:db --link redis:redis worker`
+
+- 
