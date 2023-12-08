@@ -262,3 +262,39 @@ spec:
 
 
 # Networking in Kubernetes:
+
+- IP Addres is assigned to a POD. It gets its own interal IP.
+- Cluster networking: Different tools can assing IP addresses to the node and interla pods to communicate each other.
+- Kubernetes Services: It's used to communicate applicaction with other applications or users. Example: Group of backend to a group of front end applications.
+- Services inside a node is in charge of connect the pod inside the node with the external IP addres from the node, using a port.
+- Node port service: redirect the call to the correct pod.
+
+- Services types:
+	* **NodePort**: Through a port we can access a POD from outside the node, using ports. PORT -> Service | TargetPort: POD.
+		1. definition YAML:
+		```
+		apiVersion: v1
+
+		kind: Service
+		metadata:
+		  name: myapp-service
+
+		spec: 
+		  type: NodePort #Type of node service.
+		  ports:
+		    - targetPort: 80 #POD
+			  port: 80 #Service
+			  nodePort: 30008 #Outside node exposition to public. We ingress the node from here.
+
+		  selector: #To link the service to the pod.
+		    #Metadata Labels goes here:
+			app: myapp
+			type: front-end
+		```
+		2. Service commands:
+			* `kubectl create -f <app name>.yaml` -> Create the service.
+			* `kubectl get services` -> Get services information.
+			* `curl http://192.168.1.2:30008` -> Example to acces the pod from and external IP address with port. 
+
+	* ClusterIP
+	* LoadBalancer
