@@ -64,3 +64,7 @@
 
 - **Scale up the deployments: update replicas**:
 14. `kubectl scale deployment voting-app-deploy --replicas=3`: Scale up the deployment replicas. Updated to 3 Pods.
+
+
+# Reference:
+- Link to the original yaml definitions in github: [Source](https://github.com/kodekloudhub/example-voting-app-kubernetes)
