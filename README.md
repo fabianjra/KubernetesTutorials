@@ -345,4 +345,12 @@ spec:
 	* changed and new command: * `docker run -d --name=result -p 5001:80 --link db:db result-app`
 	* Link the worker with redis and db. Changed to: `docker run -d --name=worker --lnik db:db --link redis:redis worker`
 
-- 
+
+# Azure:
+
+- AKS (Azure kunernetes service):
+	1. Add a cluster (create kubernetes cluster)
+	2. Go to cloud shell
+	3. Create credentials with command (watch documentation).
+	4. Clone the repo, where you have you YAML files to store them and create pods.
+	5. Run YAML files (pods or deploys, services, workers, apps). Example: kubectl create -f <definitions-file>.yaml
