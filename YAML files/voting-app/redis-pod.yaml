@@ -1,0 +1,17 @@
+#REDIS POD:
+
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: redis-pod
+  labels:
+    name: redis-pod
+    app: demo-boting-app #The name of the application
+
+spec:
+  containers:
+    - name: redis #The name of the container
+      image: redis
+      ports:
+        - containerPort: 6379 #The default port for the redis image.

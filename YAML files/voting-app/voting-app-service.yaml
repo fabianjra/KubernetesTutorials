@@ -1,0 +1,23 @@
+#THE VOTING APP SERVICE:
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: voting-service
+  labels:
+    name: voting-service
+    app: demo-boting-app #The name of the application
+
+spec:
+  type: NodePort
+
+#It's a frontend application which runs on the port 80.
+  ports:
+    - port: 80
+      targetPort: 80
+      nodePort: 30004 #External port
+  selector:
+  #These values should match the voting-pod metadata labels.
+     name: voting-app-pod
+     app: demo-boting-app

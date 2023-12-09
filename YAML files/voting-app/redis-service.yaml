@@ -1,0 +1,19 @@
+#THE REDIS SERVICE:
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: redis
+  labels:
+    name: redis-service-pod
+    app: demo-boting-app #The name of the application
+
+spec:
+  ports:
+    - port: 6379
+      targetPort: 6379
+  selector:
+  #These values should match the redis-pod metadata labels.
+    name: redis-pod
+    app: demo-boting-app

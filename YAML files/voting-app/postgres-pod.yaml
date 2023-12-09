@@ -1,0 +1,25 @@
+#DATA BASE POD:
+
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: postgres-pod
+  labels:
+    name: postgres-pod
+    app: demo-boting-app #The name of the application
+
+spec:
+  containers:
+    - name: postgres #The name of the container
+      image: postgres
+      ports:
+        - containerPort: 5432 #The default port for the redis image.
+      
+      #This variables should be in a Vault secret:
+      #These credentials are used to connect the Data Base.
+      env:
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"

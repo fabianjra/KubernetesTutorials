@@ -1,0 +1,17 @@
+#THE WORKER:
+
+apiVersion: v1
+kind: Pod
+
+metadata:
+  name: worker-app-pod
+  labels:
+    name: worker-app-pod
+    app: demo-boting-app #The name of the application
+
+spec:
+  containers:
+    - name: worker-app #The name of the container
+      image: kodekloud/examplevotingapp_worker:v1 #Tag: v1
+      ports:
+        - containerPort: 80

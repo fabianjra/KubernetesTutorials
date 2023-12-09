@@ -1,0 +1,19 @@
+#THE POSTGRES SERVICE:
+
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: db #The worker espect this name: db
+  labels:
+    name: postgres-service
+    app: demo-boting-app #The name of the application
+
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+  #These values should match the postgres-pod metadata labels.
+    name: postgres-pod
+    app: demo-boting-app
