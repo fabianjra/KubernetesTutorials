@@ -27,3 +27,40 @@
 15. `kubectl create -f result-app-service.yaml`: Run the result app service.
 16. `kubectl get pod, svc`: Check the new status.
 17. `minikube service result-service --url`: Check the result service IP Address and PORT.
+
+
+# Stop using pods and user DEPLOYS:
+
+- Delete exiting pods, services and others to clean all.
+- Create the YAML deploy files for each pod.
+- Install the deployments:
+
+- **Install the application deploy frontend 1 (voting)**:
+1. `kubectl create -f voting-app-deploy.yaml`: Create the deploy.
+2. `kubectl create -f voting-app-service.yaml`: Create the service.
+3. `kubectl get deployment`: Check if deploys running.
+
+- **Install the redis and data base deploy**:
+4. `kubectl create -f redis-deploy.yaml`: Create the deploy.
+5. `kubectl create -f redis-service.yaml`: Create the service.
+
+4. `kubectl create -f posrtgres-deploy.yaml`: Create the deploy.
+5. `kubectl create -f posrtgres-service.yaml`: Create the service.
+
+6. `kubectl get deployment`: Check if deploys running.
+7. `kubectl get pods,svc`: Check if pods and service running.
+
+- **Install the worker deploy**:
+8. `kubectl create -f worker-app-deploy.yaml`: Create the deploy. WORKER DOES NOT USE SERVICE.
+
+- **Install the result application deploy frontend 2 (result)**:
+9. `kubectl create -f result-app-deploy.yaml`: Create the deploy.
+10. `kubectl create -f result-app-service.yaml`: Create the service.
+11. `kubectl get deployments,svc`: Check if deploys and service running.
+
+- **Check and test**:
+12. `minikube service voting-service --url`: Check the voting service IP Address and PORT.
+13. `minikube service result-service --url`: Check the result service IP Address and PORT.
+
+- **Scale up the deployments: update replicas**:
+14. `kubectl scale deployment voting-app-deploy --replicas=3`: Scale up the deployment replicas. Updated to 3 Pods.
