@@ -354,3 +354,8 @@ spec:
 	3. Create credentials with command (watch documentation).
 	4. Clone the repo, where you have you YAML files to store them and create pods.
 	5. Run YAML files (pods or deploys, services, workers, apps). Example: kubectl create -f <definitions-file>.yaml
+
+
+# References:
+
+- Link to kubeadm installation instructions: [Source](https://kubernetes.io/docs/setup/independent/install-kubeadm)
